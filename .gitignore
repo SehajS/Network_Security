@@ -1,2 +1,5 @@
 .env
 venv
+networksecurity.egg-info
+__pycache__
+logs
