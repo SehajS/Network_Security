@@ -16,3 +16,4 @@ Requires-Dist: setuptools==75.1.0
 Requires-Dist: six==1.16.0
 Requires-Dist: tzdata==2024.2
 Requires-Dist: wheel==0.44.0
+Requires-Dist: pymongo[srv]
