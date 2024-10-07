@@ -48,6 +48,7 @@ class DataIngestion:
             dir_path = os.path.dirname(feature_store_file_path)
             os.makedirs(dir_path, exist_ok=True)
             dataframe.to_csv(feature_store_file_path, index=False, header=True)
+            logging.info(f"Feature Store created at {feature_store_file_path}")
             return dataframe
         except Exception as e:
             raise NetworkSecurityException(e, sys)
@@ -63,20 +64,23 @@ class DataIngestion:
             None
         """
         try:
+            logging.info(f"Performing train test split on the dataframe of {dataframe.shape[0]} records")
             train_set, test_set = train_test_split(
                 dataframe,
                 test_size=self.data_ingestion_config.train_test_split_ratio,
                 random_state=42
             )
+            logging.info(f"Splitting done. Train: {train_set.shape[0]} and Test: {dataframe.shape[0]} records")
 
             train_file_path = self.data_ingestion_config.training_file_path
             test_file_path = self.data_ingestion_config.testing_file_path
 
+            logging.info(f"Exporting train and test file path: {train_file_path} and {test_file_path}")
             os.makedirs(os.path.dirname(train_file_path), exist_ok=True)
-            os.makedirs(os.path.dirname(test_file_path), exist_ok=True)
 
             train_set.to_csv(train_file_path, index=False)
             test_set.to_csv(test_file_path, index=False)
+            logging.info("Exported train and test files")
         except Exception as e:
             raise NetworkSecurityException(e, sys) from e
     

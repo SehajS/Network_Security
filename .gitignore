@@ -3,5 +3,6 @@ venv
 networksecurity.egg-info
 __pycache__
 logs
+Artifacts
 test_file.py
 test_notebook.ipynb

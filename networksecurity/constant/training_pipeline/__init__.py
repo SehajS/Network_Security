@@ -7,32 +7,32 @@ import pandas as pd
 """
 Common constant variables for training pipeline
 """
-PIPELINE_NAME = "NetworkSecurity"
-ARTIFACT_DIR = "Artifacts"
-FILE_NAME = "NetworkData.csv"
+PIPELINE_NAME: str = "NetworkSecurity"
+ARTIFACT_DIR: str = "Artifacts"
+FILE_NAME: str = "NetworkData.csv"
 
-TARGET_COLUMN = "Result"
+TARGET_COLUMN: str = "Result"
 
-TRAIN_FILE_NAME = "train.csv"
-TEST_FILE_NAME = "test.csv"
+TRAIN_FILE_NAME: str = "train.csv"
+TEST_FILE_NAME: str = "test.csv"
 
-PREPROCESSING_OBJECT_FILE_NAME = "preprocessing.pkl"
-MODEL_FILE_NAME = "model.pkl"
-SCHEMA_FILE_PATH = os.path.join("data_schema", "schema.yaml")
-SCHEMA_DROP_COLS = "drop_columns"
+PREPROCESSING_OBJECT_FILE_NAME: str = "preprocessing.pkl"
+MODEL_FILE_NAME: str = "model.pkl"
+SCHEMA_FILE_PATH: str = os.path.join("data_schema", "schema.yaml")
+SCHEMA_DROP_COLS: str = "drop_columns"
 
-SAVED_MODEL_DIR = os.path.join("saved_models")
+SAVED_MODEL_DIR: str = os.path.join("saved_models")
 
 
 """
 Data Ingestion related constants
 """
-DATA_INGESTION_DATABASE_NAME = "PhishingDB"
-DATA_INGESTION_COLLECTION_NAME = "NetworkData"
-DATA_INGESTION_DIR_NAME = "data_ingestion"
-DATA_INGESTION_FEATURE_STORE_DIR = "feature_store"
-DATA_INGESTION_INGESTED_DIR = "ingested"
-DATA_INGESTION_TRAIN_TEST_SPLIT_RATIO = 0.2
+DATA_INGESTION_DATABASE_NAME: str = "PhishingDB"
+DATA_INGESTION_COLLECTION_NAME: str = "NetworkData"
+DATA_INGESTION_DIR_NAME: str = "data_ingestion"
+DATA_INGESTION_FEATURE_STORE_DIR: str = "feature_store"
+DATA_INGESTION_INGESTED_DIR: str = "ingested"
+DATA_INGESTION_TRAIN_TEST_SPLIT_RATIO: str = 0.2
 
 
 """
