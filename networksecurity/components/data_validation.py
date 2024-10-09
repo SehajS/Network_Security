@@ -105,11 +105,13 @@ class DataValidation:
             
             dir_path = os.path.dirname(self.data_validation_config.valid_train_file_path)
             os.makedirs(dir_path, exist_ok=True)
-            train_df.to_csv(self.data_validation_config.valid_train_file_path, index=False)
-            test_df.to_csv(self.data_validation_config.valid_test_file_path, index=False)
+            data_validation_status = "Pass" if num_cols_train_status and num_cols_test_status and data_drift_status else "Fail"
+            if data_validation_status == "Pass":
+                train_df.to_csv(self.data_validation_config.valid_train_file_path, index=False)
+                test_df.to_csv(self.data_validation_config.valid_test_file_path, index=False)
 
             data_validation_artifact = DataValidationArtifact(
-                validation_status= "Pass" if num_cols_train_status and num_cols_test_status and data_drift_status else "Fail",
+                validation_status= data_validation_status,
                 valid_train_file_path = self.data_validation_config.valid_train_file_path,
                 valid_test_file_path=self.data_validation_config.valid_test_file_path,
                 invalid_train_file_path=None,
