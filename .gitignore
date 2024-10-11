@@ -4,6 +4,8 @@ networksecurity.egg-info
 __pycache__
 logs
 Artifacts
+.pyc
+
 # Scratch Files
 DATA_INGESTION_PIPELINE_FLOW.md
 test_file.py
