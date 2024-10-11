@@ -42,5 +42,6 @@ traitlets==5.14.3
 tzdata==2024.2
 wcwidth==0.2.13
 wheel==0.44.0
+xgboost==2.1.1
 
 -e .
