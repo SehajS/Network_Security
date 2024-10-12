@@ -33,7 +33,7 @@ class ModelResolver:
         try:
             timestamps = list(map(int, os.listdir(self.model_dir)))
             latest_timestamp = max(timestamps)
-            latest_model_path = os.path.jion(self.model_dir, f"{latest_timestamp}", training_pipeline.MODEL_FILE_NAME)
+            latest_model_path = os.path.join(self.model_dir, f"{latest_timestamp}", training_pipeline.MODEL_FILE_NAME)
             return latest_model_path
         except Exception as e:
             raise NetworkSecurityException(e, sys)
