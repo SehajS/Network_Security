@@ -30,6 +30,7 @@ class ModelTrainer:
 
     def initiate_model_trainer(self)-> ModelTrainerArtifact:
         try:
+            logging.info("Initiating Model Trainer Component")
             train_file_path = self.data_transformation_artifact.transformed_train_file_path
             test_file_path = self.data_transformation_artifact.transformed_test_file_path
 

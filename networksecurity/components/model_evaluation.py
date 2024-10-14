@@ -32,6 +32,7 @@ class ModelEvaluation:
         
     def initiate_model_evaluation(self)-> ModelEvaluationArtifact:
         try:
+            logging.info("Intiating Model Evaluation Component")
             valid_train_path = self.data_validation_artifact.valid_train_file_path
             valid_test_path = self.data_validation_artifact.valid_test_file_path
 

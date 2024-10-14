@@ -48,7 +48,7 @@ class DataTransformation:
             raise NetworkSecurityException(e, sys)
     
     def initiate_data_transformation(self) -> DataTransformationArtifact:
-        logging.info("Initiating Data Transformation Pipeline")
+        logging.info("Initiating Data Transformation Component")
 
         try:
             train_df = DataTransformation.read_data(self.data_validation_artifact.valid_train_file_path)

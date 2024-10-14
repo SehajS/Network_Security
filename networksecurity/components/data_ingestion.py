@@ -86,6 +86,7 @@ class DataIngestion:
     
     def initiate_data_ingestion(self):
         try:
+            logging.info("Initiating Data Ingestion Component")
             df = self.export_collection_as_dataframe()
             df = self.export_data_to_feature_store(df)
             self.split_data_into_train_test_sets(df)
