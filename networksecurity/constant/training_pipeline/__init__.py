@@ -77,3 +77,5 @@ MODEL_EVALUATION_REPORT_NAME: str = "report.yaml"
 """
 Model Pusher related constants
 """
+MODEL_PUSHER_DIR_NAME: str = "model_pusher"
+MODEL_PUSHER_SAVED_MODEL_DIR: str = SAVED_MODEL_DIR
