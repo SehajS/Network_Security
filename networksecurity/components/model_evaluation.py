@@ -88,11 +88,10 @@ class ModelEvaluation:
                 best_model_metric_artifact=latest_metric
             )
 
-            logging.info(f"Model Evaluation Artifact: {model_evaluation_artifact}")
+            logging.info(f"Model Evaluation Completed, artifact: {model_evaluation_artifact}")
             model_eval_report = model_evaluation_artifact.__dict__
             write_yaml_file(self.model_eval_config.report_file_path, model_eval_report)
             return model_evaluation_artifact
-
 
         except Exception as e:
             raise NetworkSecurityException(e, sys)
