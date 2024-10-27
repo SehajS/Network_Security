@@ -79,3 +79,10 @@ Model Pusher related constants
 """
 MODEL_PUSHER_DIR_NAME: str = "model_pusher"
 MODEL_PUSHER_SAVED_MODEL_DIR: str = SAVED_MODEL_DIR
+
+
+"""
+AWS Based Constants
+"""
+TRAINING_BUCKET_NAME: str = "myphishingdata"
+PREDICTION_BUCKET_NAME: str = "network-dataSource"
