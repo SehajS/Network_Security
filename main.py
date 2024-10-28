@@ -47,7 +47,11 @@ async def index():
 @app.get("/train")
 async def train():
     try:
-        pass
+        train_pipeline = TrainingPipeline()
+        if train_pipeline.is_pipeline_running:
+            return Response("Training pipeline is already running.")
+        train_pipeline.run_pipeline()
+        return Response("Training successful!")
     except Exception as e:
         raise NetworkSecurityException(e, sys)
     

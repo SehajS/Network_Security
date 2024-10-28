@@ -33,6 +33,7 @@ from networksecurity.cloud.s3_syncher import S3Sync
 
 
 class TrainingPipeline:
+    is_pipeline_running = False
     def __init__(self):
         self.training_pipeline_config = TrainingPipelineConfig()
         self.s3_sync = S3Sync()
@@ -121,6 +122,7 @@ class TrainingPipeline:
     
     def run_pipeline(self):
         try:
+            TrainingPipeline.is_pipeline_running = True
             data_ingestion_artifact =self.start_data_ingestion()
             data_validation_artifact =self.start_data_validation(data_ingestion_artifact=data_ingestion_artifact)
             data_transformation_artifact = self.start_data_transformation(data_validation_artifact=data_validation_artifact)
@@ -128,8 +130,10 @@ class TrainingPipeline:
             model_eval_artifact = self.start_model_evaluation(model_trainer_artifact=model_trainer_artifact,
                                                                     data_validation_artifact=data_validation_artifact)
             model_pusher_artifact = self.start_model_pusher(model_eval_artifact=model_eval_artifact)
-
+            
+            TrainingPipeline.is_pipeline_running = False
             self.sync_artifact_dir_to_s3()
             self.sync_saved_model_dir_to_s3()
         except Exception as e:
+            TrainingPipeline.is_pipeline_running = False
             raise NetworkSecurityException(e, sys)
