@@ -25,7 +25,7 @@ setup(
     name="networksecurity",
     version="0.0.1",
     author="sehajsingh",
-    author_email="singhsp7977@gmail.com",
+    author_email="",
     packages=find_packages(),
     install_requires=get_requirements_list(),
 )
